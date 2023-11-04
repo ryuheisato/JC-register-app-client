@@ -1,7 +1,6 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { useEffect, useState } from 'react';
-import axios from 'axios'; // 仮にaxiosを使用してデモリクエストを行う場合
 
 export function ScrollAreaDemo() {
   const [years, setYears] = useState<string[]>([]);

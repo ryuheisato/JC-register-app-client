@@ -21,7 +21,7 @@ export function SemesterDialog({ onSuccess }: { onSuccess: () => void }) {
   const handleAdd = async () => {
     if (selectedYear && selectedTerm) {
       try {
-        const response = await axios.post('http://localhost:3001/semesters', {
+        await axios.post('http://localhost:3001/semesters', {
           term: `${selectedTerm} ${selectedYear}`,
         });
         onSuccess();

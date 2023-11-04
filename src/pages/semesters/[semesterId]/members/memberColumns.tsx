@@ -12,7 +12,7 @@ import {
 export type Members = {
   name: string;
 
-  studentId: number;
+  studentID: number;
 
   id: number;
 };
@@ -23,10 +23,16 @@ export const columns = (
   {
     accessorKey: 'name',
     header: 'Name',
+    cell: ({ row }) => {
+      return <div className='capitalize'>{row.getValue('name')}</div>;
+    },
   },
   {
-    accessorKey: 'studentId',
+    accessorKey: 'studentID',
     header: 'Student ID',
+    cell: ({ row }) => {
+      return <div className='capitalize'>{row.getValue('studentID')}</div>;
+    },
   },
   {
     id: 'actions',
@@ -44,7 +50,7 @@ export const columns = (
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end'>
               <DropdownMenuItem
-                onClick={(event) => {
+                onClick={() => {
                   handleCellClick(name.id);
                 }}
               >
