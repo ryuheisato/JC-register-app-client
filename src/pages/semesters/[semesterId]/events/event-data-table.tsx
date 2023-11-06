@@ -15,7 +15,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { useRouter } from 'next/router';
 
 interface HasId {
   id: number;
@@ -26,7 +25,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData extends HasId, TValue>({
+export function EventDataTable<TData extends HasId, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -35,12 +34,6 @@ export function DataTable<TData extends HasId, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-
-  const router = useRouter();
-
-  const handleCellClick = (id: number) => {
-    router.push(`/semesters/${id}/members`); // URLにIDを追加して遷移
-  };
 
   return (
     <div className='rounded-md border'>
@@ -69,14 +62,9 @@ export function DataTable<TData extends HasId, TValue>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
-                className='hover:bg-muted/50'
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className='text-lg text-center cursor-pointer'
-                    onClick={() => handleCellClick(row.original.id)}
-                  >
+                  <TableCell key={cell.id} className='text-lg'>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
