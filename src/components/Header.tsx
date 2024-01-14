@@ -37,7 +37,7 @@ const Header: React.FC = () => {
               className='mr-5 hover:text-gray-900'
               onClick={() => handleNavigation('members')}
             >
-              メンバー
+              メンバー一覧
             </button>
             <button
               onClick={() => handleNavigation('members', 'register')}

@@ -57,7 +57,7 @@ export default function DemoPage() {
   return (
     <div className='container'>
       <div className='flex justify-end m-8'>
-        <Button onClick={handleClick}>メンバーを追加</Button>
+        <Button onClick={handleClick}>メンバー登録</Button>
       </div>
       <MemberDataTable columns={columns(handleCellClick)} data={data} />
     </div>
